@@ -49,3 +49,13 @@ function infiniteLoop(): never {
     while (true) {
     }
 }
+
+// 类型断言 2种写法
+// 定义一个any类型的变量，我在使用时明确知道他是什么类型变量，并进行类型转换，其实只在编译阶段起作用
+// 第一种类似java中的类型转换
+let someValue: any = "this is a string";
+let strLength: number = (<string>someValue).length;
+
+// 第二种 as 关键字，个人还是比较喜欢第一种
+let someValue2: any = "this is a string";
+let strLength2: number = (someValue as string).length;
