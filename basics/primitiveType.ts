@@ -13,6 +13,14 @@ let list2: Array<number> = [1, 2, 3];
 // 类型可以为any，但是这样失去了类型限制的优势
 let anyList: Array<any> = [1, 'aa', true];
 
+// 还有一种ReadonlyArray，只是把所有可变方法去掉了，因此可以确保数组创建后再也不能被修改
+
+let readOnlyArr: ReadonlyArray<number> = [1, 2, 3, 4];
+
+// readOnlyArr[1] = 2; // 不能更改
+
+// readOnlyArr.push(5); // 不允许push
+
 // void 类型，理论上any的对立面是void，即所有类型都不存在的时候
 // 一般用在函数无返回值时，其实js中的函数都有返回值，默认是undefined
 
