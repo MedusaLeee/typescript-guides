@@ -6,12 +6,12 @@ class PersonBase {
         this.name = name;
         this.email = email;
     }
-    sayHi() {
+    sayHi(): void {
         console.log('Hi');
     }
 }
 
-const me: PersonBase = new PersonBase('tom', 'tom@163.com')
+const me: PersonBase = new PersonBase('tom', 'tom@163.com');
 
 // 错误使用类，可以正常使用但是违背了单一职责原则（SRP），负责太多就成了God对象
 // 决定一个属性或方法能不能称为类的一部分，主要看个人的主观判断。语法没有错，仔细分析，可以找到更好的类的设计方式
@@ -26,11 +26,11 @@ class PersonErr {
             throw new Error('邮箱格式错误');
         }
     }
-    validateEmail(email: string) { 
+    validateEmail(email: string): boolean {
         const re = /\S+@\S+\.\S+/;
         return re.test(email);
     }
-    toString() {
+    toString(): string {
         return `${this.name}: ${this.email}`;
     }
 }
@@ -49,7 +49,7 @@ class Email {
             throw new Error('邮箱格式错误');
         }
     }
-    private validateEmail(email: string) { 
+    private validateEmail(email: string): boolean {
         const re = /\S+@\S+\.\S+/;
         return re.test(email);
     }
@@ -70,7 +70,7 @@ class Person {
         this.name = name;
         this.email = email;
     }
-    toString() {
+    toString(): string {
         return `${this.name}: ${this.email.get()}`;
     }
 }
